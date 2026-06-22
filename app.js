@@ -190,6 +190,9 @@ function displayResult(mbtiType) {
     document.getElementById('resultWeaknesses').textContent = result.weaknesses;
     document.getElementById('resultCareers').textContent = result.careers;
     
+    // IBM 추천 서비스 표시
+    displayRecommendedServices(result.recommendedServices);
+    
     // 차원별 점수 표시
     displayDimensionScores();
     
@@ -199,6 +202,30 @@ function displayResult(mbtiType) {
             section.style.animationDelay = `${index * 0.1}s`;
         });
     }, 100);
+}
+
+// IBM 추천 서비스 표시
+function displayRecommendedServices(services) {
+    const servicesContainer = document.getElementById('recommendedServices');
+    if (!servicesContainer) return;
+    
+    servicesContainer.innerHTML = '';
+    
+    if (!services || services.length === 0) {
+        servicesContainer.innerHTML = '<p style="color: #666;">추천 서비스 정보가 없습니다.</p>';
+        return;
+    }
+    
+    services.forEach(service => {
+        const serviceCard = document.createElement('div');
+        serviceCard.className = 'service-card';
+        serviceCard.innerHTML = `
+            <div class="service-icon">🚀</div>
+            <h4 class="service-name">${service.name}</h4>
+            <p class="service-reason">${service.reason}</p>
+        `;
+        servicesContainer.appendChild(serviceCard);
+    });
 }
 
 // 차원별 점수 표시
@@ -215,7 +242,7 @@ function displayDimensionScores() {
     
     dimensions.forEach(dim => {
         const score = scores[dim.key];
-        const maxScore = 30; // 15문항 × 2점
+        const maxScore = 20; // 10문항 × 2점
         const percentage = ((score + maxScore) / (maxScore * 2)) * 100;
         
         const item = document.createElement('div');
