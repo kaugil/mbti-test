@@ -37,20 +37,11 @@ function displayQuestion() {
     document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
     document.getElementById('totalQuestions').textContent = mbtiQuestions.length;
     
-    // 모든 버튼 선택 해제 (다음 질문으로 이동 시 초기화)
+    // 모든 버튼 선택 해제
     const answerButtons = document.querySelectorAll('.answer-btn');
     answerButtons.forEach(btn => {
         btn.classList.remove('selected');
     });
-    
-    // 이전 답변이 있으면 선택 상태 복원 (이전 버튼으로 돌아갈 때만)
-    if (answers[currentQuestionIndex] !== null) {
-        answerButtons.forEach(btn => {
-            if (answers[currentQuestionIndex] === parseInt(btn.dataset.value)) {
-                btn.classList.add('selected');
-            }
-        });
-    }
     
     // 버튼 상태 업데이트
     updateNavigationButtons();
