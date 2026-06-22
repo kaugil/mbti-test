@@ -355,6 +355,8 @@ body {
     text-align: left;
     position: relative;
     overflow: hidden;
+    -webkit-tap-highlight-color: transparent; /* 모바일 터치 하이라이트 제거 */
+    user-select: none; /* 텍스트 선택 방지 */
 }
 
 .answer-btn::before {
@@ -368,19 +370,32 @@ body {
     transition: width 0.3s ease;
 }
 
-.answer-btn:hover {
-    border-color: var(--primary-color);
-    transform: translateX(5px);
+/* 데스크톱 호버 효과 */
+@media (hover: hover) and (pointer: fine) {
+    .answer-btn:hover {
+        border-color: var(--primary-color);
+        transform: translateX(5px);
+    }
+    
+    .answer-btn:hover::before {
+        width: 100%;
+    }
 }
 
-.answer-btn:hover::before {
-    width: 100%;
+/* 모바일 터치 효과 - 즉시 제거 */
+.answer-btn:active {
+    transform: scale(0.98);
 }
 
 .answer-btn.selected {
     border-color: var(--primary-color);
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
     font-weight: 600;
+}
+
+/* 포커스 상태 제거 (모바일 문제 해결) */
+.answer-btn:focus {
+    outline: none;
 }
 
 .answer-label {
