@@ -163,8 +163,16 @@ body {
 .mbti-types h3 {
     text-align: center;
     color: var(--text-dark);
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-size: 1.5rem;
+}
+
+.types-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    font-style: italic;
 }
 
 .types-grid {
@@ -181,12 +189,19 @@ body {
     font-size: 1rem;
     color: white;
     transition: var(--transition);
+}
+
+.type-badge.clickable {
     cursor: pointer;
 }
 
-.type-badge:hover {
+.type-badge.clickable:hover {
     transform: scale(1.1);
     box-shadow: var(--shadow-md);
+}
+
+.type-badge.clickable:active {
+    transform: scale(1.05);
 }
 
 .type-badge.analyst {
