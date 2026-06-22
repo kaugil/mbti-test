@@ -55,6 +55,7 @@ function selectAnswer(value) {
     const answerButtons = document.querySelectorAll('.answer-btn');
     answerButtons.forEach(btn => {
         btn.classList.remove('selected');
+        btn.blur(); // 포커스 제거 (모바일 문제 해결)
         if (parseInt(btn.dataset.value) === value) {
             btn.classList.add('selected');
         }
@@ -65,9 +66,10 @@ function selectAnswer(value) {
     
     // 자동으로 다음 질문으로 이동
     setTimeout(() => {
-        // 다음 질문으로 이동하기 전에 선택 상태 제거
+        // 다음 질문으로 이동하기 전에 선택 상태 완전 제거
         answerButtons.forEach(btn => {
             btn.classList.remove('selected');
+            btn.blur(); // 포커스 제거
         });
         
         if (currentQuestionIndex < mbtiQuestions.length - 1) {
