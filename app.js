@@ -51,7 +51,7 @@ function displayQuestion() {
 function selectAnswer(value) {
     answers[currentQuestionIndex] = value;
     
-    // 선택된 버튼 표시
+    // 선택된 버튼 표시 (짧은 시간만)
     const answerButtons = document.querySelectorAll('.answer-btn');
     answerButtons.forEach(btn => {
         btn.classList.remove('selected');
@@ -63,8 +63,13 @@ function selectAnswer(value) {
     // 다음 버튼 활성화
     document.getElementById('nextBtn').disabled = false;
     
-    // 자동으로 다음 질문으로 (선택사항)
+    // 자동으로 다음 질문으로 이동
     setTimeout(() => {
+        // 다음 질문으로 이동하기 전에 선택 상태 제거
+        answerButtons.forEach(btn => {
+            btn.classList.remove('selected');
+        });
+        
         if (currentQuestionIndex < mbtiQuestions.length - 1) {
             nextQuestion();
         } else {
