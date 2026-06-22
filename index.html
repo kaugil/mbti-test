@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MBTI 성격 유형 진단 테스트 - 60문항으로 당신의 성격 유형을 알아보세요">
+    <meta name="description" content="IBM 직원 대상 MBTI 성격 유형 진단 - 40문항으로 당신의 성격 유형과 적합한 IBM 서비스를 알아보세요">
     <meta name="theme-color" content="#6C5CE7">
-    <title>MBTI 성격 유형 진단 테스트</title>
+    <title>IBM MBTI 성격 유형 진단 테스트</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="icon-192.png">
@@ -15,25 +15,25 @@
     <div id="startScreen" class="screen active">
         <div class="container">
             <div class="header-animation">
-                <h1 class="main-title">🧠 IBM MBTI 성격 유형 진단</h1>
-                <p class="subtitle">60문항으로 알아보는 나의 성격 유형</p>
+                <h1 class="main-title">🧠 IBM MBTI 직무 적성 진단</h1>
+                <p class="subtitle">40문항으로 알아보는 나의 성격 유형과 적합한 IBM 서비스</p>
             </div>
             
             <div class="info-cards">
                 <div class="info-card">
                     <div class="info-icon">📊</div>
-                    <h3>정확한 진단</h3>
-                    <p>60개의 상세 질문으로 정확한 결과 제공</p>
+                    <h3>직무 중심 진단</h3>
+                    <p>IBM 업무 환경에 최적화된 40개 질문</p>
                 </div>
                 <div class="info-card">
                     <div class="info-icon">⚡</div>
                     <h3>빠른 결과</h3>
-                    <p>약 5-10분 소요</p>
+                    <p>약 3-5분 소요</p>
                 </div>
                 <div class="info-card">
-                    <div class="info-icon">🎨</div>
-                    <h3>상세한 설명</h3>
-                    <p>16가지 유형별 특징과 직업 추천</p>
+                    <div class="info-icon">🚀</div>
+                    <h3>IBM 서비스 추천</h3>
+                    <p>당신에게 맞는 IBM IT 서비스 매칭</p>
                 </div>
             </div>
 
@@ -146,6 +146,12 @@
                 <div class="result-section">
                     <h3>💼 추천 직업</h3>
                     <p id="resultCareers" class="result-text"></p>
+                </div>
+
+                <div class="result-section">
+                    <h3>🚀 IBM 추천 서비스</h3>
+                    <p class="section-subtitle">당신의 성향에 맞는 IBM IT 서비스를 추천합니다</p>
+                    <div id="recommendedServices" class="services-container"></div>
                 </div>
 
                 <div class="result-section">
