@@ -94,6 +94,11 @@ function nextQuestion() {
         return;
     }
     
+    // 모든 선택 상태 강제 제거
+    document.querySelectorAll('.answer-btn').forEach(btn => {
+        btn.classList.remove('selected');
+    });
+    
     if (currentQuestionIndex < mbtiQuestions.length - 1) {
         currentQuestionIndex++;
         displayQuestion();
