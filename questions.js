@@ -1,519 +1,539 @@
-// MBTI 질문 데이터 (60문항)
+// IBM 직원 대상 MBTI 질문 (40문항 - 명확하고 직무 관련)
 const mbtiQuestions = [
-    // E(외향) vs I(내향) - 15문항
+    // E(외향) vs I(내향) - 10문항
     {
         id: 1,
-        question: "새로운 사람들을 만나는 것이 즐겁고 에너지가 생긴다.",
+        question: "팀 미팅에서 먼저 의견을 제시하고 토론을 주도하는 것을 선호한다.",
         dimension: "EI",
         direction: "E"
     },
     {
         id: 2,
-        question: "혼자만의 시간을 가지면 에너지가 충전된다.",
+        question: "회의 전에 충분히 생각을 정리한 후 발표하는 것을 선호한다.",
         dimension: "EI",
         direction: "I"
     },
     {
         id: 3,
-        question: "파티나 모임에서 여러 사람과 대화하는 것을 좋아한다.",
+        question: "새로운 프로젝트 팀원들과 빠르게 친해지고 협업하는 것이 편하다.",
         dimension: "EI",
         direction: "E"
     },
     {
         id: 4,
-        question: "깊이 있는 일대일 대화를 선호한다.",
+        question: "혼자 집중해서 작업할 때 가장 생산적이다.",
         dimension: "EI",
         direction: "I"
     },
     {
         id: 5,
-        question: "생각을 말로 표현하면서 정리하는 편이다.",
+        question: "브레인스토밍 회의에서 즉석에서 아이디어를 내는 것을 즐긴다.",
         dimension: "EI",
         direction: "E"
     },
     {
         id: 6,
-        question: "생각을 충분히 정리한 후에 말하는 편이다.",
+        question: "이메일이나 문서로 의사소통하는 것이 대면 회의보다 편하다.",
         dimension: "EI",
         direction: "I"
     },
     {
         id: 7,
-        question: "활동적이고 다양한 경험을 추구한다.",
+        question: "여러 팀과 동시에 협업하는 프로젝트를 선호한다.",
         dimension: "EI",
         direction: "E"
     },
     {
         id: 8,
-        question: "조용하고 차분한 환경을 선호한다.",
+        question: "소규모 팀이나 1:1 미팅에서 더 효과적으로 일한다.",
         dimension: "EI",
         direction: "I"
     },
     {
         id: 9,
-        question: "먼저 다가가서 대화를 시작하는 편이다.",
+        question: "네트워킹 이벤트나 컨퍼런스에서 새로운 사람들을 만나는 것이 즐겁다.",
         dimension: "EI",
         direction: "E"
     },
     {
         id: 10,
-        question: "상대방이 먼저 말을 걸어주기를 기다린다.",
+        question: "업무 후에는 혼자만의 시간으로 에너지를 재충전한다.",
         dimension: "EI",
         direction: "I"
     },
+
+    // S(감각) vs N(직관) - 10문항
     {
         id: 11,
-        question: "여러 사람과 함께 있을 때 더 편안하다.",
-        dimension: "EI",
-        direction: "E"
+        question: "프로젝트 계획 시 구체적인 단계와 세부 사항을 먼저 정의한다.",
+        dimension: "SN",
+        direction: "S"
     },
     {
         id: 12,
-        question: "소수의 친한 친구들과 시간 보내는 것을 선호한다.",
-        dimension: "EI",
-        direction: "I"
+        question: "프로젝트의 전체적인 비전과 장기적 영향을 먼저 고려한다.",
+        dimension: "SN",
+        direction: "N"
     },
     {
         id: 13,
-        question: "즉흥적으로 계획을 바꾸는 것이 즐겁다.",
-        dimension: "EI",
-        direction: "E"
+        question: "검증된 방법론과 베스트 프랙티스를 따르는 것을 선호한다.",
+        dimension: "SN",
+        direction: "S"
     },
     {
         id: 14,
-        question: "미리 계획된 일정을 선호한다.",
-        dimension: "EI",
-        direction: "I"
+        question: "혁신적이고 실험적인 접근 방식을 시도하는 것을 즐긴다.",
+        dimension: "SN",
+        direction: "N"
     },
     {
         id: 15,
-        question: "전화 통화가 문자보다 편하다.",
-        dimension: "EI",
-        direction: "E"
-    },
-
-    // S(감각) vs N(직관) - 15문항
-    {
-        id: 16,
-        question: "현재의 사실과 세부사항에 집중한다.",
+        question: "데이터와 사실에 기반한 의사결정을 중요하게 생각한다.",
         dimension: "SN",
         direction: "S"
+    },
+    {
+        id: 16,
+        question: "직관과 패턴 인식을 통해 문제를 해결하는 것을 선호한다.",
+        dimension: "SN",
+        direction: "N"
     },
     {
         id: 17,
-        question: "미래의 가능성과 의미를 생각한다.",
+        question: "현재 시스템을 개선하고 최적화하는 작업을 선호한다.",
         dimension: "SN",
-        direction: "N"
+        direction: "S"
     },
     {
         id: 18,
-        question: "실용적이고 현실적인 것을 중요하게 생각한다.",
+        question: "완전히 새로운 솔루션을 설계하고 구현하는 것을 선호한다.",
         dimension: "SN",
-        direction: "S"
+        direction: "N"
     },
     {
         id: 19,
-        question: "창의적이고 독창적인 아이디어를 좋아한다.",
+        question: "명확한 요구사항과 스펙이 정의된 프로젝트를 선호한다.",
         dimension: "SN",
-        direction: "N"
+        direction: "S"
     },
     {
         id: 20,
-        question: "경험을 통해 배운 것을 신뢰한다.",
-        dimension: "SN",
-        direction: "S"
-    },
-    {
-        id: 21,
-        question: "직관과 영감을 따르는 편이다.",
+        question: "모호한 문제를 탐색하고 가능성을 발견하는 것을 즐긴다.",
         dimension: "SN",
         direction: "N"
+    },
+
+    // T(사고) vs F(감정) - 10문항
+    {
+        id: 21,
+        question: "코드 리뷰나 피드백 시 기술적 정확성을 최우선으로 한다.",
+        dimension: "TF",
+        direction: "T"
     },
     {
         id: 22,
-        question: "구체적이고 명확한 지시를 선호한다.",
-        dimension: "SN",
-        direction: "S"
+        question: "피드백 제공 시 상대방의 감정과 동기를 고려한다.",
+        dimension: "TF",
+        direction: "F"
     },
     {
         id: 23,
-        question: "큰 그림과 전체적인 맥락을 파악하려 한다.",
-        dimension: "SN",
-        direction: "N"
+        question: "프로젝트 우선순위 결정 시 ROI와 효율성을 기준으로 한다.",
+        dimension: "TF",
+        direction: "T"
     },
     {
         id: 24,
-        question: "검증된 방법을 따르는 것이 안전하다고 생각한다.",
-        dimension: "SN",
-        direction: "S"
+        question: "의사결정 시 팀원들의 의견과 팀 화합을 중요하게 고려한다.",
+        dimension: "TF",
+        direction: "F"
     },
     {
         id: 25,
-        question: "새로운 방법을 시도하는 것을 즐긴다.",
-        dimension: "SN",
-        direction: "N"
+        question: "문제 해결 시 논리적 분석과 객관적 데이터를 중시한다.",
+        dimension: "TF",
+        direction: "T"
     },
     {
         id: 26,
-        question: "오감으로 느낄 수 있는 것을 중요하게 여긴다.",
-        dimension: "SN",
-        direction: "S"
+        question: "팀 내 갈등 해결 시 각자의 입장과 감정을 이해하려 노력한다.",
+        dimension: "TF",
+        direction: "F"
     },
     {
         id: 27,
-        question: "상징적이고 은유적인 표현을 좋아한다.",
-        dimension: "SN",
-        direction: "N"
+        question: "성과 평가 시 명확한 지표와 기준을 적용한다.",
+        dimension: "TF",
+        direction: "T"
     },
     {
         id: 28,
-        question: "단계별로 차근차근 진행하는 것을 선호한다.",
-        dimension: "SN",
-        direction: "S"
+        question: "팀원의 개인적 상황과 성장을 고려하여 업무를 배분한다.",
+        dimension: "TF",
+        direction: "F"
     },
     {
         id: 29,
-        question: "여러 가지를 동시에 생각하는 편이다.",
-        dimension: "SN",
-        direction: "N"
+        question: "기술적 결정 시 감정보다는 사실과 논리를 우선한다.",
+        dimension: "TF",
+        direction: "T"
     },
     {
         id: 30,
-        question: "사실에 기반한 정보를 신뢰한다.",
-        dimension: "SN",
-        direction: "S"
+        question: "프로젝트 성공을 위해 팀의 사기와 동기부여가 중요하다고 생각한다.",
+        dimension: "TF",
+        direction: "F"
     },
 
-    // T(사고) vs F(감정) - 15문항
+    // J(판단) vs P(인식) - 10문항
     {
         id: 31,
-        question: "논리적이고 객관적인 분석을 중요하게 생각한다.",
-        dimension: "TF",
-        direction: "T"
+        question: "프로젝트 시작 전에 상세한 계획과 일정을 수립한다.",
+        dimension: "JP",
+        direction: "J"
     },
     {
         id: 32,
-        question: "사람들의 감정과 조화를 우선시한다.",
-        dimension: "TF",
-        direction: "F"
+        question: "프로젝트 진행 중 유연하게 방향을 조정하는 것을 선호한다.",
+        dimension: "JP",
+        direction: "P"
     },
     {
         id: 33,
-        question: "옳고 그름을 명확히 판단하는 것이 중요하다.",
-        dimension: "TF",
-        direction: "T"
+        question: "마감 기한을 엄격히 지키고 일정대로 진행하는 것이 중요하다.",
+        dimension: "JP",
+        direction: "J"
     },
     {
         id: 34,
-        question: "상황에 따라 유연하게 판단하는 것이 중요하다.",
-        dimension: "TF",
-        direction: "F"
+        question: "마감 압박 속에서 더 창의적이고 집중력이 높아진다.",
+        dimension: "JP",
+        direction: "P"
     },
     {
         id: 35,
-        question: "비판적 사고와 분석을 잘한다.",
-        dimension: "TF",
-        direction: "T"
+        question: "체계적인 프로세스와 문서화를 중요하게 생각한다.",
+        dimension: "JP",
+        direction: "J"
     },
     {
         id: 36,
-        question: "공감과 이해를 잘하는 편이다.",
-        dimension: "TF",
-        direction: "F"
+        question: "상황에 따라 즉흥적으로 대응하는 것이 효율적이라고 생각한다.",
+        dimension: "JP",
+        direction: "P"
     },
     {
         id: 37,
-        question: "결정할 때 원칙과 기준을 따른다.",
-        dimension: "TF",
-        direction: "T"
+        question: "업무를 미리 완료하고 여유를 가지는 것을 선호한다.",
+        dimension: "JP",
+        direction: "J"
     },
     {
         id: 38,
-        question: "결정할 때 사람들에게 미치는 영향을 고려한다.",
-        dimension: "TF",
-        direction: "F"
+        question: "여러 옵션을 열어두고 최적의 시점에 결정하는 것을 선호한다.",
+        dimension: "JP",
+        direction: "P"
     },
     {
         id: 39,
-        question: "솔직하고 직설적인 표현을 선호한다.",
-        dimension: "TF",
-        direction: "T"
+        question: "명확한 목표와 마일스톤이 설정된 프로젝트를 선호한다.",
+        dimension: "JP",
+        direction: "J"
     },
     {
         id: 40,
-        question: "부드럽고 배려하는 표현을 선호한다.",
-        dimension: "TF",
-        direction: "F"
-    },
-    {
-        id: 41,
-        question: "문제 해결에 집중한다.",
-        dimension: "TF",
-        direction: "T"
-    },
-    {
-        id: 42,
-        question: "감정적 지지를 제공하는 것이 중요하다.",
-        dimension: "TF",
-        direction: "F"
-    },
-    {
-        id: 43,
-        question: "공정성과 정의를 중요하게 생각한다.",
-        dimension: "TF",
-        direction: "T"
-    },
-    {
-        id: 44,
-        question: "조화와 평화를 중요하게 생각한다.",
-        dimension: "TF",
-        direction: "F"
-    },
-    {
-        id: 45,
-        question: "객관적인 사실에 기반해 판단한다.",
-        dimension: "TF",
-        direction: "T"
-    },
-
-    // J(판단) vs P(인식) - 15문항
-    {
-        id: 46,
-        question: "계획을 세우고 그대로 실행하는 것을 좋아한다.",
-        dimension: "JP",
-        direction: "J"
-    },
-    {
-        id: 47,
-        question: "상황에 따라 유연하게 대처하는 것을 선호한다.",
+        question: "탐색적이고 실험적인 프로젝트에서 더 동기부여된다.",
         dimension: "JP",
         direction: "P"
-    },
-    {
-        id: 48,
-        question: "마감 기한을 잘 지키는 편이다.",
-        dimension: "JP",
-        direction: "J"
-    },
-    {
-        id: 49,
-        question: "마감 직전에 집중력이 높아진다.",
-        dimension: "JP",
-        direction: "P"
-    },
-    {
-        id: 50,
-        question: "정리정돈이 잘 되어 있어야 편하다.",
-        dimension: "JP",
-        direction: "J"
-    },
-    {
-        id: 51,
-        question: "약간의 혼란도 괜찮다고 생각한다.",
-        dimension: "JP",
-        direction: "P"
-    },
-    {
-        id: 52,
-        question: "결정을 빨리 내리는 편이다.",
-        dimension: "JP",
-        direction: "J"
-    },
-    {
-        id: 53,
-        question: "여러 선택지를 열어두고 싶어한다.",
-        dimension: "JP",
-        direction: "P"
-    },
-    {
-        id: 54,
-        question: "체계적이고 조직적인 것을 선호한다.",
-        dimension: "JP",
-        direction: "J"
-    },
-    {
-        id: 55,
-        question: "자유롭고 융통성 있는 것을 선호한다.",
-        dimension: "JP",
-        direction: "P"
-    },
-    {
-        id: 56,
-        question: "일을 미리미리 끝내는 편이다.",
-        dimension: "JP",
-        direction: "J"
-    },
-    {
-        id: 57,
-        question: "여유를 가지고 천천히 진행하는 편이다.",
-        dimension: "JP",
-        direction: "P"
-    },
-    {
-        id: 58,
-        question: "목표를 설정하고 달성하는 것이 중요하다.",
-        dimension: "JP",
-        direction: "J"
-    },
-    {
-        id: 59,
-        question: "과정을 즐기는 것이 더 중요하다.",
-        dimension: "JP",
-        direction: "P"
-    },
-    {
-        id: 60,
-        question: "규칙과 절차를 따르는 것이 편하다.",
-        dimension: "JP",
-        direction: "J"
     }
 ];
 
-// MBTI 유형별 상세 설명
+// IBM 직무별 MBTI 유형 설명
 const mbtiDescriptions = {
     "ISTJ": {
-        name: "세상의 소금형",
+        name: "체계적 실행자",
         color: "#2C3E50",
-        traits: ["책임감이 강함", "체계적", "신뢰할 수 있음", "현실적"],
-        description: "한번 시작한 일은 끝까지 해내는 성실함과 책임감이 강한 유형입니다. 사실과 경험을 중시하며, 체계적이고 조직적인 방식을 선호합니다.",
-        strengths: "신뢰성, 책임감, 체계성, 실용성",
-        weaknesses: "융통성 부족, 변화에 대한 저항, 감정 표현 어려움",
-        careers: "회계사, 감사, 군인, 경찰, 은행원, 공무원"
+        traits: ["신뢰성", "체계성", "정확성", "책임감"],
+        description: "검증된 방법론을 따르며 안정적으로 프로젝트를 완수하는 유형입니다. 품질 관리와 프로세스 준수를 중시합니다.",
+        strengths: "체계적 실행, 품질 관리, 신뢰성, 세부사항 관리",
+        weaknesses: "변화 적응, 유연성, 혁신적 사고",
+        careers: "시스템 관리자, 품질 보증, 데이터베이스 관리자, 프로젝트 관리자",
+        ibmFit: "메인프레임 운영, 시스템 통합, 품질 보증, 규정 준수",
+        recommendedServices: [
+            {
+                name: "Data Platform Service",
+                reason: "체계적인 데이터 관리와 안정적인 플랫폼 운영에 강점을 발휘할 수 있습니다."
+            }
+        ]
     },
     "ISFJ": {
-        name: "임금 뒤편의 권력형",
+        name: "헌신적 지원자",
         color: "#16A085",
-        traits: ["헌신적", "세심함", "책임감", "온화함"],
-        description: "따뜻하고 헌신적이며, 다른 사람을 돕는 것에서 보람을 느끼는 유형입니다. 세심하고 책임감이 강하며, 전통과 안정을 중시합니다.",
-        strengths: "배려심, 책임감, 인내심, 세심함",
-        weaknesses: "자기주장 부족, 변화 거부, 과도한 희생",
-        careers: "간호사, 교사, 사서, 상담사, 사회복지사"
+        traits: ["세심함", "협력", "안정성", "지원"],
+        description: "팀원을 지원하고 안정적인 환경을 만드는 데 기여하는 유형입니다. 사용자 경험과 팀 화합을 중시합니다.",
+        strengths: "팀 지원, 사용자 중심, 세심한 관리, 안정성",
+        weaknesses: "자기주장, 변화 주도, 큰 그림 파악",
+        careers: "기술 지원, 사용자 경험 디자이너, 교육 담당, 고객 성공 관리자",
+        ibmFit: "고객 지원, 사용자 경험, 교육 및 트레이닝, 내부 IT 지원",
+        recommendedServices: [
+            {
+                name: "Digital Product Engineering iX",
+                reason: "사용자 중심의 세심한 제품 개발과 고객 경험 향상에 기여할 수 있습니다."
+            }
+        ]
     },
     "INFJ": {
-        name: "예언자형",
+        name: "비전 제시자",
         color: "#8E44AD",
-        traits: ["통찰력", "이상주의", "헌신적", "창의적"],
-        description: "깊은 통찰력과 이상주의를 가진 유형입니다. 사람들의 성장을 돕고 의미 있는 변화를 만들어내는 것을 중요하게 생각합니다.",
-        strengths: "통찰력, 창의성, 헌신, 이상주의",
-        weaknesses: "완벽주의, 번아웃, 비현실적 기대",
-        careers: "상담사, 작가, 심리학자, 예술가, 종교인"
+        traits: ["통찰력", "전략적", "혁신", "영감"],
+        description: "장기적 비전을 가지고 의미 있는 변화를 만들어내는 유형입니다. 사람과 기술의 조화를 추구합니다.",
+        strengths: "전략적 사고, 혁신, 팀 동기부여, 장기 계획",
+        weaknesses: "세부 실행, 단기 목표, 현실적 제약",
+        careers: "제품 전략가, UX 리서처, 조직 개발, 혁신 리더",
+        ibmFit: "제품 전략, 디자인 씽킹, 조직 변화 관리, 혁신 프로그램",
+        recommendedServices: [
+            {
+                name: "Digital Product Engineering iX",
+                reason: "전략적 비전과 사용자 중심 사고로 혁신적인 디지털 제품을 설계할 수 있습니다."
+            },
+            {
+                name: "AI & Analytics Service",
+                reason: "통찰력을 활용하여 데이터 기반 의사결정과 AI 전략을 수립할 수 있습니다."
+            }
+        ]
     },
     "INTJ": {
-        name: "과학자형",
+        name: "전략적 설계자",
         color: "#34495E",
-        traits: ["전략적", "독립적", "분석적", "혁신적"],
-        description: "전략적 사고와 독립성이 강한 유형입니다. 복잡한 문제를 해결하고 장기적인 비전을 실현하는 것을 즐깁니다.",
-        strengths: "전략적 사고, 독립성, 분석력, 혁신성",
-        weaknesses: "감정 표현 어려움, 완벽주의, 비판적",
-        careers: "과학자, 엔지니어, 전략가, 연구원, 교수"
+        traits: ["전략", "독립성", "혁신", "효율성"],
+        description: "복잡한 시스템을 설계하고 장기적 전략을 수립하는 유형입니다. 기술적 우수성과 효율성을 추구합니다.",
+        strengths: "시스템 설계, 전략 수립, 기술 혁신, 문제 해결",
+        weaknesses: "팀 협업, 감정 표현, 단기 실행",
+        careers: "솔루션 아키텍트, 기술 전략가, 연구 개발, 시스템 설계자",
+        ibmFit: "클라우드 아키텍처, AI/ML 연구, 엔터프라이즈 아키텍처, 기술 전략",
+        recommendedServices: [
+            {
+                name: "AI & Analytics Service",
+                reason: "복잡한 AI 시스템 설계와 데이터 아키텍처 구축에 탁월한 능력을 발휘합니다."
+            },
+            {
+                name: "Data Platform Service",
+                reason: "전략적 사고로 확장 가능한 데이터 플랫폼을 설계하고 최적화할 수 있습니다."
+            }
+        ]
     },
     "ISTP": {
-        name: "백과사전형",
+        name: "기술 문제 해결사",
         color: "#E67E22",
-        traits: ["논리적", "실용적", "유연함", "독립적"],
-        description: "논리적이고 실용적인 문제 해결사입니다. 손으로 직접 만들고 고치는 것을 좋아하며, 자유롭고 유연한 생활을 선호합니다.",
-        strengths: "문제 해결력, 실용성, 유연성, 침착함",
-        weaknesses: "감정 표현 부족, 장기 계획 어려움, 규칙 거부",
-        careers: "기술자, 정비사, 운동선수, 소방관, 파일럿"
+        traits: ["실용성", "분석", "독립성", "효율성"],
+        description: "기술적 문제를 논리적으로 분석하고 효율적으로 해결하는 유형입니다. 실용적인 솔루션을 선호합니다.",
+        strengths: "기술 문제 해결, 효율성, 독립적 작업, 실용적 접근",
+        weaknesses: "장기 계획, 팀 협업, 문서화",
+        careers: "DevOps 엔지니어, 시스템 엔지니어, 네트워크 전문가, 보안 분석가",
+        ibmFit: "인프라 관리, DevOps, 사이버 보안, 성능 최적화",
+        recommendedServices: [
+            {
+                name: "Data Platform Service",
+                reason: "실용적인 문제 해결 능력으로 플랫폼 성능 최적화와 기술적 이슈를 효율적으로 처리합니다."
+            }
+        ]
     },
     "ISFP": {
-        name: "성인군자형",
+        name: "창의적 실행자",
         color: "#1ABC9C",
-        traits: ["예술적", "온화함", "유연함", "현재 지향적"],
-        description: "조용하고 친절하며 예술적 감각이 뛰어난 유형입니다. 현재를 즐기고 자유로운 표현을 중시합니다.",
-        strengths: "예술성, 유연성, 친절함, 현실감각",
-        weaknesses: "계획성 부족, 자기주장 약함, 스트레스 회피",
-        careers: "예술가, 디자이너, 음악가, 요리사, 수의사"
+        traits: ["창의성", "유연성", "실용성", "협력"],
+        description: "창의적이면서도 실용적인 솔루션을 만드는 유형입니다. 사용자 중심의 디자인을 중시합니다.",
+        strengths: "창의적 디자인, 사용자 중심, 유연성, 실행력",
+        weaknesses: "장기 계획, 체계성, 갈등 관리",
+        careers: "UI/UX 디자이너, 프론트엔드 개발자, 크리에이티브 개발자",
+        ibmFit: "디자인 시스템, 사용자 인터페이스, 프로토타이핑, 크리에이티브 개발",
+        recommendedServices: [
+            {
+                name: "Digital Product Engineering iX",
+                reason: "창의적 디자인과 사용자 경험을 중시하는 디지털 제품 개발에 적합합니다."
+            }
+        ]
     },
     "INFP": {
-        name: "잔다르크형",
+        name: "가치 중심 혁신가",
         color: "#9B59B6",
-        traits: ["이상주의", "창의적", "공감능력", "열정적"],
-        description: "이상주의적이고 창의적인 유형입니다. 자신의 가치관에 따라 살아가며, 진정성과 의미를 추구합니다.",
-        strengths: "창의성, 공감능력, 이상주의, 열정",
-        weaknesses: "비현실적, 우유부단, 과도한 이상화",
-        careers: "작가, 상담사, 예술가, 심리학자, 사회운동가"
+        traits: ["이상주의", "창의성", "공감", "진정성"],
+        description: "의미 있는 프로젝트에 열정을 가지고 창의적으로 기여하는 유형입니다. 사용자와 팀의 가치를 중시합니다.",
+        strengths: "창의적 사고, 사용자 공감, 가치 중심, 혁신",
+        weaknesses: "현실적 제약, 갈등 상황, 체계적 실행",
+        careers: "UX 라이터, 콘텐츠 전략가, 제품 디자이너, 커뮤니티 관리자",
+        ibmFit: "사용자 경험, 콘텐츠 디자인, 커뮤니티 구축, 브랜드 경험",
+        recommendedServices: [
+            {
+                name: "Digital Product Engineering iX",
+                reason: "사용자 공감과 창의성을 바탕으로 의미 있는 디지털 경험을 창출할 수 있습니다."
+            }
+        ]
     },
     "INTP": {
-        name: "아이디어 뱅크형",
+        name: "논리적 혁신가",
         color: "#3498DB",
-        traits: ["논리적", "분석적", "독창적", "호기심"],
-        description: "논리적이고 분석적인 사고를 가진 유형입니다. 복잡한 이론과 아이디어를 탐구하는 것을 즐깁니다.",
-        strengths: "논리성, 분석력, 독창성, 객관성",
-        weaknesses: "실행력 부족, 감정 표현 어려움, 완벽주의",
-        careers: "연구원, 프로그래머, 수학자, 철학자, 분석가"
+        traits: ["논리성", "분석", "혁신", "독립성"],
+        description: "복잡한 기술적 문제를 논리적으로 분석하고 혁신적인 솔루션을 개발하는 유형입니다.",
+        strengths: "기술 혁신, 논리적 분석, 문제 해결, 독창성",
+        weaknesses: "실행력, 팀 협업, 마감 관리",
+        careers: "연구 개발자, 데이터 과학자, 알고리즘 엔지니어, 기술 연구원",
+        ibmFit: "AI/ML 연구, 양자 컴퓨팅, 알고리즘 개발, 기술 혁신",
+        recommendedServices: [
+            {
+                name: "AI & Analytics Service",
+                reason: "논리적 분석과 혁신적 사고로 AI 알고리즘과 데이터 과학 분야에서 탁월합니다."
+            },
+            {
+                name: "Data Platform Service",
+                reason: "복잡한 데이터 구조를 분석하고 최적화하는 데 강점을 발휘합니다."
+            }
+        ]
     },
     "ESTP": {
-        name: "수완좋은 활동가형",
+        name: "실행 중심 리더",
         color: "#E74C3C",
-        traits: ["활동적", "현실적", "대담함", "적응력"],
-        description: "활동적이고 현실적인 유형입니다. 즉각적인 문제 해결을 잘하며, 모험과 도전을 즐깁니다.",
-        strengths: "행동력, 적응력, 현실감각, 대담함",
-        weaknesses: "충동적, 장기 계획 부족, 규칙 무시",
-        careers: "영업사원, 기업가, 운동선수, 경찰, 응급구조사"
+        traits: ["행동력", "실용성", "적응력", "결단력"],
+        description: "빠르게 의사결정하고 즉각적으로 실행하는 유형입니다. 위기 상황에서 강점을 발휘합니다.",
+        strengths: "빠른 실행, 위기 관리, 적응력, 실용적 해결",
+        weaknesses: "장기 계획, 세부 분석, 인내심",
+        careers: "기술 영업, 솔루션 컨설턴트, 프로젝트 리더, 사전 영업",
+        ibmFit: "기술 영업, 고객 솔루션, 프로젝트 관리, 비즈니스 개발",
+        recommendedServices: [
+            {
+                name: "Digital Product Engineering iX",
+                reason: "빠른 실행력과 적응력으로 애자일한 제품 개발을 주도할 수 있습니다."
+            }
+        ]
     },
     "ESFP": {
-        name: "사교적인 유형",
+        name: "열정적 협력자",
         color: "#F39C12",
-        traits: ["사교적", "즐거움", "자발적", "낙천적"],
-        description: "사교적이고 즐거움을 추구하는 유형입니다. 사람들과 함께 있을 때 에너지가 넘치며, 현재를 즐깁니다.",
-        strengths: "사교성, 낙천성, 유연성, 실용성",
-        weaknesses: "계획성 부족, 집중력 부족, 충동적",
-        careers: "연예인, 이벤트 기획자, 판매원, 요리사, 여행 가이드"
+        traits: ["열정", "협력", "실용성", "적응력"],
+        description: "팀에 에너지를 불어넣고 협력적인 분위기를 만드는 유형입니다. 실용적이고 유연한 접근을 선호합니다.",
+        strengths: "팀 동기부여, 협력, 유연성, 실용적 접근",
+        weaknesses: "장기 계획, 체계성, 세부 분석",
+        careers: "스크럼 마스터, 팀 리더, 이벤트 관리자, 커뮤니티 매니저",
+        ibmFit: "애자일 코치, 팀 빌딩, 이벤트 관리, 내부 커뮤니케이션",
+        recommendedServices: [
+            {
+                name: "Digital Product Engineering iX",
+                reason: "협력적 접근과 유연성으로 팀 기반 제품 개발을 촉진할 수 있습니다."
+            }
+        ]
     },
     "ENFP": {
-        name: "스파크형",
+        name: "창의적 촉진자",
         color: "#E91E63",
-        traits: ["열정적", "창의적", "사교적", "자유로움"],
-        description: "열정적이고 창의적인 유형입니다. 새로운 가능성을 탐구하고 사람들에게 영감을 주는 것을 좋아합니다.",
-        strengths: "창의성, 열정, 사교성, 낙천성",
-        weaknesses: "산만함, 일관성 부족, 과도한 이상화",
-        careers: "작가, 마케터, 상담사, 배우, 기자"
+        traits: ["창의성", "열정", "혁신", "영감"],
+        description: "새로운 아이디어를 탐색하고 팀에 영감을 주는 유형입니다. 혁신적인 프로젝트를 주도합니다.",
+        strengths: "아이디어 창출, 팀 영감, 혁신 주도, 네트워킹",
+        weaknesses: "세부 실행, 일관성, 마감 관리",
+        careers: "제품 관리자, 혁신 리더, 비즈니스 분석가, 마케팅 전략가",
+        ibmFit: "제품 혁신, 디자인 씽킹, 비즈니스 전략, 신규 사업",
+        recommendedServices: [
+            {
+                name: "Digital Product Engineering iX",
+                reason: "창의적 아이디어와 혁신적 사고로 새로운 디지털 제품을 기획하고 주도합니다."
+            },
+            {
+                name: "AI & Analytics Service",
+                reason: "혁신적 사고로 AI 기반 새로운 비즈니스 기회를 발굴할 수 있습니다."
+            }
+        ]
     },
     "ENTP": {
-        name: "발명가형",
+        name: "전략적 혁신가",
         color: "#00BCD4",
-        traits: ["혁신적", "논리적", "도전적", "독창적"],
-        description: "혁신적이고 논리적인 유형입니다. 새로운 아이디어를 탐구하고 기존의 방식에 도전하는 것을 즐깁니다.",
-        strengths: "혁신성, 논리성, 창의성, 적응력",
-        weaknesses: "실행력 부족, 논쟁적, 규칙 무시",
-        careers: "기업가, 발명가, 변호사, 컨설턴트, 과학자"
+        traits: ["혁신", "논리", "도전", "전략"],
+        description: "기존 방식에 도전하고 혁신적인 솔루션을 제안하는 유형입니다. 복잡한 문제를 즐깁니다.",
+        strengths: "혁신적 사고, 전략 수립, 문제 해결, 설득력",
+        weaknesses: "세부 실행, 일관성, 루틴 작업",
+        careers: "기술 컨설턴트, 솔루션 아키텍트, 제품 전략가, 혁신 리더",
+        ibmFit: "기술 컨설팅, 솔루션 설계, 비즈니스 혁신, 전략 기획",
+        recommendedServices: [
+            {
+                name: "AI & Analytics Service",
+                reason: "혁신적 사고와 논리적 분석으로 AI 기반 비즈니스 전략을 수립합니다."
+            },
+            {
+                name: "Digital Product Engineering iX",
+                reason: "기존 방식에 도전하며 혁신적인 디지털 솔루션을 설계합니다."
+            }
+        ]
     },
     "ESTJ": {
-        name: "사업가형",
+        name: "효율적 관리자",
         color: "#795548",
-        traits: ["조직적", "실용적", "결단력", "책임감"],
-        description: "조직적이고 실용적인 유형입니다. 효율적으로 일을 처리하고 목표를 달성하는 것을 중요하게 생각합니다.",
-        strengths: "조직력, 실용성, 결단력, 책임감",
-        weaknesses: "융통성 부족, 감정 표현 어려움, 고집",
-        careers: "경영자, 관리자, 군인, 판사, 은행원"
+        traits: ["조직력", "효율성", "리더십", "실행력"],
+        description: "효율적으로 팀을 관리하고 목표를 달성하는 유형입니다. 명확한 프로세스와 책임을 중시합니다.",
+        strengths: "프로젝트 관리, 팀 리더십, 효율성, 실행력",
+        weaknesses: "유연성, 혁신, 감정 고려",
+        careers: "프로젝트 관리자, 운영 관리자, 프로그램 관리자, 팀 리더",
+        ibmFit: "프로그램 관리, 운영 효율화, 프로세스 개선, 팀 관리",
+        recommendedServices: [
+            {
+                name: "Data Platform Service",
+                reason: "체계적 관리와 효율성으로 대규모 데이터 플랫폼 운영을 최적화합니다."
+            }
+        ]
     },
     "ESFJ": {
-        name: "친선도모형",
+        name: "협력적 조직자",
         color: "#4CAF50",
-        traits: ["사교적", "협조적", "책임감", "배려심"],
-        description: "사교적이고 협조적인 유형입니다. 다른 사람을 돕고 조화로운 환경을 만드는 것을 중요하게 생각합니다.",
-        strengths: "사교성, 협조성, 책임감, 배려심",
-        weaknesses: "비판에 민감, 변화 거부, 과도한 희생",
-        careers: "교사, 간호사, 사회복지사, 이벤트 기획자, 인사 담당자"
+        traits: ["협력", "조직력", "지원", "책임감"],
+        description: "팀의 화합을 중시하며 효율적으로 업무를 조직하는 유형입니다. 팀원들을 지원하고 동기부여합니다.",
+        strengths: "팀 협력, 조직 관리, 지원, 커뮤니케이션",
+        weaknesses: "변화 적응, 비판 수용, 혁신",
+        careers: "프로젝트 코디네이터, HR 파트너, 팀 리더, 고객 성공 관리자",
+        ibmFit: "프로젝트 조정, 인사 관리, 팀 개발, 고객 관계",
+        recommendedServices: [
+            {
+                name: "Digital Product Engineering iX",
+                reason: "팀 협력과 조직력으로 고객 중심의 제품 개발 프로젝트를 성공적으로 이끕니다."
+            }
+        ]
     },
     "ENFJ": {
-        name: "언변능숙형",
+        name: "영감을 주는 리더",
         color: "#FF5722",
-        traits: ["카리스마", "공감능력", "이상주의", "리더십"],
-        description: "카리스마 있고 공감능력이 뛰어난 유형입니다. 사람들을 이끌고 긍정적인 변화를 만들어내는 것을 좋아합니다.",
-        strengths: "리더십, 공감능력, 카리스마, 이상주의",
-        weaknesses: "과도한 이상화, 비판에 민감, 번아웃",
-        careers: "교사, 상담사, 정치인, 코치, 인사 담당자"
+        traits: ["리더십", "영감", "공감", "비전"],
+        description: "팀에 비전을 제시하고 구성원들을 동기부여하는 유형입니다. 사람과 목표의 조화를 추구합니다.",
+        strengths: "팀 리더십, 동기부여, 비전 제시, 커뮤니케이션",
+        weaknesses: "세부 관리, 비판적 피드백, 객관성",
+        careers: "엔지니어링 관리자, 제품 리더, 조직 개발, 변화 관리자",
+        ibmFit: "엔지니어링 리더십, 조직 변화, 인재 개발, 문화 구축",
+        recommendedServices: [
+            {
+                name: "Digital Product Engineering iX",
+                reason: "비전 제시와 팀 동기부여로 혁신적인 디지털 제품 개발을 주도합니다."
+            },
+            {
+                name: "AI & Analytics Service",
+                reason: "리더십과 커뮤니케이션으로 AI 프로젝트 팀을 이끌고 비전을 실현합니다."
+            }
+        ]
     },
     "ENTJ": {
-        name: "지도자형",
+        name: "전략적 리더",
         color: "#673AB7",
-        traits: ["리더십", "전략적", "결단력", "효율성"],
-        description: "타고난 리더십과 전략적 사고를 가진 유형입니다. 목표를 설정하고 효율적으로 달성하는 것을 즐깁니다.",
-        strengths: "리더십, 전략적 사고, 결단력, 효율성",
-        weaknesses: "감정 표현 부족, 지나친 비판, 완벽주의",
-        careers: "CEO, 경영자, 변호사, 정치인, 군 장교"
+        traits: ["리더십", "전략", "효율성", "결단력"],
+        description: "명확한 비전을 가지고 전략적으로 조직을 이끄는 유형입니다. 목표 달성과 효율성을 중시합니다.",
+        strengths: "전략적 리더십, 의사결정, 효율성, 목표 달성",
+        weaknesses: "감정 고려, 인내심, 세부 배려",
+        careers: "기술 임원, 사업부 리더, 전략 책임자, 프로그램 디렉터",
+        ibmFit: "사업부 리더십, 전략 기획, 대규모 프로그램, 조직 혁신",
+        recommendedServices: [
+            {
+                name: "AI & Analytics Service",
+                reason: "전략적 리더십으로 AI 기반 비즈니스 혁신을 주도하고 목표를 달성합니다."
+            },
+            {
+                name: "Data Platform Service",
+                reason: "효율성과 결단력으로 대규모 데이터 플랫폼 전략을 수립하고 실행합니다."
+            }
+        ]
     }
 };
 
