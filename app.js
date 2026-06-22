@@ -37,14 +37,20 @@ function displayQuestion() {
     document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
     document.getElementById('totalQuestions').textContent = mbtiQuestions.length;
     
-    // 이전 답변이 있으면 선택 상태 복원
+    // 모든 버튼 선택 해제 (다음 질문으로 이동 시 초기화)
     const answerButtons = document.querySelectorAll('.answer-btn');
     answerButtons.forEach(btn => {
         btn.classList.remove('selected');
-        if (answers[currentQuestionIndex] === parseInt(btn.dataset.value)) {
-            btn.classList.add('selected');
-        }
     });
+    
+    // 이전 답변이 있으면 선택 상태 복원 (이전 버튼으로 돌아갈 때만)
+    if (answers[currentQuestionIndex] !== null) {
+        answerButtons.forEach(btn => {
+            if (answers[currentQuestionIndex] === parseInt(btn.dataset.value)) {
+                btn.classList.add('selected');
+            }
+        });
+    }
     
     // 버튼 상태 업데이트
     updateNavigationButtons();
@@ -281,16 +287,20 @@ function shareResult() {
     const resultName = document.getElementById('resultName').textContent;
     const shareText = `나의 MBTI 유형은 ${mbtiType} (${resultName})입니다! 🎉`;
     
+    // URL에 type 파라미터 추가
+    const baseUrl = window.location.origin + window.location.pathname;
+    const shareUrl = `${baseUrl}?type=${mbtiType}`;
+    
     if (navigator.share) {
         navigator.share({
-            title: 'MBTI 테스트 결과',
+            title: 'IBM MBTI 테스트 결과',
             text: shareText,
-            url: window.location.href
+            url: shareUrl
         }).catch(err => console.log('공유 실패:', err));
     } else {
         // 클립보드에 복사
         const textArea = document.createElement('textarea');
-        textArea.value = shareText + '\n' + window.location.href;
+        textArea.value = shareText + '\n' + shareUrl;
         document.body.appendChild(textArea);
         textArea.select();
         
@@ -298,7 +308,7 @@ function shareResult() {
             document.execCommand('copy');
             alert('결과가 클립보드에 복사되었습니다!');
         } catch (err) {
-            alert('공유 링크: ' + window.location.href);
+            alert('공유 링크: ' + shareUrl);
         }
         
         document.body.removeChild(textArea);
@@ -338,6 +348,22 @@ window.addEventListener('beforeinstallprompt', (e) => {
     console.log('PWA 설치 가능');
 });
 
+// URL에서 MBTI 유형 가져오기
+function getMBTIFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('type');
+}
+
+// MBTI 유형으로 직접 결과 보기
+function showResultByType(mbtiType) {
+    const type = mbtiType.toUpperCase();
+    if (mbtiDescriptions[type]) {
+        displayResult(type);
+    } else {
+        alert('유효하지 않은 MBTI 유형입니다.');
+    }
+}
+
 // 페이지 로드 시 초기화
 window.addEventListener('load', () => {
     // 서비스 워커 등록 (PWA)
@@ -345,6 +371,12 @@ window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js')
             .then(reg => console.log('Service Worker 등록 성공:', reg))
             .catch(err => console.log('Service Worker 등록 실패:', err));
+    }
+    
+    // URL에 type 파라미터가 있으면 해당 결과 표시
+    const mbtiType = getMBTIFromURL();
+    if (mbtiType) {
+        showResultByType(mbtiType);
     }
 });
 
