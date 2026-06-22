@@ -1,5 +1,5 @@
 // 서비스 워커 버전
-const CACHE_NAME = 'mbti-test-v2';
+const CACHE_NAME = 'mbti-test-v3';
 const urlsToCache = [
     '/',
     '/index.html',
