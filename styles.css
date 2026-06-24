@@ -6,51 +6,51 @@
 }
 
 :root {
-    /* IBM Think 컨퍼런스 스타일 - 다크 & 네온 */
+    /* IBM Carbon Design System - Blue 60 */
     --primary-color: #0F62FE;
-    --primary-hover: #4589FF;
-    --secondary-color: #8A3FFC;
-    --accent-color: #EE5396;
-    --cyan-accent: #1192E8;
+    --primary-hover: #0353E9;
     
-    /* 다크 배경 */
-    --bg-dark: #001D6C;
-    --bg-darker: #001141;
-    --bg-darkest: #000A2E;
+    /* IBM Carbon - Gray Scale */
+    --gray-10: #F4F4F4;
+    --gray-20: #E0E0E0;
+    --gray-30: #C6C6C6;
+    --gray-50: #8D8D8D;
+    --gray-70: #525252;
+    --gray-80: #393939;
+    --gray-100: #161616;
     
-    /* 라이트 배경 */
+    /* IBM Carbon - Functional Colors */
+    --success-color: #24A148;
+    --danger-color: #DA1E28;
+    --warning-color: #F1C21B;
+    --info-color: #1192E8;
+    
+    /* MBTI 유형별 컬러 (Carbon 팔레트 기반) */
+    --analyst-color: #8A3FFC;    /* Purple 60 */
+    --diplomat-color: #0F62FE;   /* Blue 60 */
+    --sentinel-color: #198038;   /* Green 60 */
+    --explorer-color: #FA4D56;   /* Red 50 */
+    
+    /* 텍스트 컬러 */
+    --text-primary: var(--gray-100);
+    --text-secondary: var(--gray-70);
+    --text-placeholder: var(--gray-50);
+    
+    /* 배경 컬러 */
     --bg-white: #FFFFFF;
-    --bg-light: #F4F4F4;
+    --bg-light: var(--gray-10);
+    --bg-hover: var(--gray-20);
     
-    /* 텍스트 */
-    --text-on-dark: #FFFFFF;
-    --text-on-light: #161616;
-    --text-secondary: #C6C6C6;
-    --text-muted: #8D8D8D;
+    /* 테두리 */
+    --border-subtle: var(--gray-20);
+    --border-strong: var(--gray-50);
     
-    /* 네온 글로우 효과 */
-    --glow-blue: 0 0 20px rgba(15, 98, 254, 0.5);
-    --glow-purple: 0 0 20px rgba(138, 63, 252, 0.5);
-    --glow-magenta: 0 0 20px rgba(238, 83, 150, 0.5);
+    /* 그림자 (Carbon 스타일) */
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.1);
+    --shadow-md: 0 2px 6px rgba(0,0,0,0.2);
+    --shadow-lg: 0 8px 16px rgba(0,0,0,0.2);
     
-    /* MBTI 유형별 네온 컬러 */
-    --analyst-color: #8A3FFC;
-    --diplomat-color: #0F62FE;
-    --sentinel-color: #24A148;
-    --explorer-color: #EE5396;
-    
-    /* 그라데이션 */
-    --gradient-primary: linear-gradient(135deg, #0F62FE 0%, #8A3FFC 100%);
-    --gradient-accent: linear-gradient(135deg, #8A3FFC 0%, #EE5396 100%);
-    --gradient-dark: linear-gradient(180deg, #001D6C 0%, #000A2E 100%);
-    
-    /* 그림자 */
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
-    --shadow-neon: 0 0 30px rgba(15, 98, 254, 0.6);
-    
-    /* 간격 */
+    /* 간격 (8px 그리드 시스템) */
     --spacing-01: 2px;
     --spacing-02: 4px;
     --spacing-03: 8px;
@@ -62,41 +62,19 @@
     --spacing-09: 48px;
     
     /* 전환 효과 */
-    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: 70ms cubic-bezier(0, 0, 0.38, 0.9);
+    --transition-base: 110ms cubic-bezier(0, 0, 0.38, 0.9);
+    --transition-slow: 240ms cubic-bezier(0, 0, 0.38, 0.9);
 }
 
 body {
     font-family: 'IBM Plex Sans', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
-    background: var(--gradient-dark);
+    background: var(--bg-light);
     min-height: 100vh;
-    color: var(--text-on-dark);
+    color: var(--text-primary);
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    position: relative;
-    overflow-x: hidden;
-}
-
-/* 배경 패턴 효과 */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image:
-        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(15, 98, 254, 0.03) 2px, rgba(15, 98, 254, 0.03) 4px),
-        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(138, 63, 252, 0.03) 2px, rgba(138, 63, 252, 0.03) 4px);
-    pointer-events: none;
-    z-index: 0;
-}
-
-body > * {
-    position: relative;
-    z-index: 1;
 }
 
 /* 화면 전환 */
@@ -148,25 +126,11 @@ body > * {
 }
 
 .main-title {
-    font-size: 3.5rem;
-    font-weight: 700;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: var(--spacing-04);
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-03);
     letter-spacing: -0.02em;
-    text-shadow: var(--glow-blue);
-    animation: glow 3s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-    from {
-        filter: drop-shadow(0 0 10px rgba(15, 98, 254, 0.5));
-    }
-    to {
-        filter: drop-shadow(0 0 20px rgba(138, 63, 252, 0.8));
-    }
 }
 
 .subtitle {
@@ -185,38 +149,19 @@ body > * {
 }
 
 .info-card {
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px);
+    background: var(--bg-white);
     padding: var(--spacing-07) var(--spacing-05);
-    border-radius: 8px;
+    border-radius: 4px;
     text-align: center;
-    border: 1px solid rgba(15, 98, 254, 0.5);
+    border: 1px solid var(--border-subtle);
     transition: all var(--transition-base);
     animation: scaleIn 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.info-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(15, 98, 254, 0.2), transparent);
-    transition: left var(--transition-slow);
-}
-
-.info-card:hover::before {
-    left: 100%;
 }
 
 .info-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-neon);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
     border-color: var(--primary-color);
-    background: rgba(15, 98, 254, 0.1);
 }
 
 @keyframes scaleIn {
@@ -238,7 +183,7 @@ body > * {
 .info-card h3 {
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--text-on-dark);
+    color: var(--text-primary);
     margin-bottom: var(--spacing-03);
 }
 
@@ -379,65 +324,43 @@ body > * {
 
 /* 진행 바 */
 .progress-container {
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px);
+    background: var(--bg-white);
     padding: var(--spacing-05);
-    border-radius: 12px;
+    border-radius: 4px;
     margin-bottom: var(--spacing-07);
-    border: 1px solid rgba(15, 98, 254, 0.5);
+    border: 1px solid var(--border-subtle);
 }
 
 .progress-bar {
-    height: 12px;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 20px;
+    height: 8px;
+    background: var(--gray-20);
+    border-radius: 0;
     overflow: hidden;
     margin-bottom: var(--spacing-03);
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .progress-fill {
     height: 100%;
-    background: var(--gradient-primary);
-    border-radius: 20px;
+    background: var(--primary-color);
+    border-radius: 0;
     transition: width var(--transition-slow);
-    box-shadow: 0 0 15px rgba(15, 98, 254, 0.6);
-    position: relative;
-}
-
-.progress-fill::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
 }
 
 .progress-text {
     text-align: center;
     font-size: 0.875rem;
     font-weight: 600;
-    color: var(--text-on-dark);
+    color: var(--text-secondary);
 }
 
 /* 질문 카드 */
 .question-card {
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
+    background: var(--bg-white);
     padding: var(--spacing-08);
-    border-radius: 16px;
-    border: 1px solid rgba(138, 63, 252, 0.5);
+    border-radius: 4px;
+    border: 1px solid var(--border-subtle);
     margin-bottom: var(--spacing-07);
     animation: slideIn 0.3s ease;
-    box-shadow: var(--shadow-lg);
 }
 
 @keyframes slideIn {
@@ -452,19 +375,18 @@ body > * {
 }
 
 .question-number {
-    color: var(--accent-color);
+    color: var(--text-secondary);
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.1em;
     margin-bottom: var(--spacing-04);
-    text-shadow: 0 0 10px rgba(238, 83, 150, 0.5);
 }
 
 .question-text {
     font-size: 1.5rem;
     font-weight: 400;
-    color: var(--text-on-dark);
+    color: var(--text-primary);
     margin-bottom: var(--spacing-07);
     line-height: 1.4;
 }
@@ -478,15 +400,14 @@ body > * {
 
 .answer-btn {
     padding: var(--spacing-05);
-    border: 1px solid rgba(15, 98, 254, 0.4);
-    border-radius: 8px;
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(5px);
+    border: 1px solid var(--border-subtle);
+    border-radius: 0;
+    background: var(--bg-white);
     cursor: pointer;
-    transition: all var(--transition-base);
+    transition: all var(--transition-fast);
     font-size: 1rem;
     font-weight: 400;
-    color: var(--text-on-dark);
+    color: var(--text-primary);
     text-align: left;
     position: relative;
     overflow: hidden;
@@ -517,7 +438,7 @@ body > * {
     }
 }
 
-/* 모바일 터치 효과 - 즉시 제거 */
+/* 모바일 터치 효과 */
 .answer-btn:active {
     transform: scale(0.98);
 }
@@ -525,12 +446,10 @@ body > * {
 .answer-btn.selected {
     border-color: var(--primary-color);
     border-width: 2px;
-    background: rgba(15, 98, 254, 0.15);
+    background: rgba(15, 98, 254, 0.05);
     font-weight: 600;
-    box-shadow: 0 0 25px rgba(15, 98, 254, 0.6);
 }
 
-/* 포커스 상태 제거 (모바일 문제 해결) */
 .answer-btn:focus {
     outline: none;
 }
@@ -554,14 +473,12 @@ body > * {
 /* 결과 화면 */
 .result-header {
     text-align: center;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
+    background: var(--bg-white);
     padding: var(--spacing-09) var(--spacing-07);
-    border-radius: 20px;
+    border-radius: 4px;
     margin-bottom: var(--spacing-07);
-    border: 1px solid rgba(138, 63, 252, 0.5);
+    border: 1px solid var(--border-subtle);
     animation: zoomIn 0.3s ease;
-    box-shadow: var(--shadow-lg);
 }
 
 @keyframes zoomIn {
@@ -580,35 +497,20 @@ body > * {
     font-weight: 400;
     color: var(--text-secondary);
     margin-bottom: var(--spacing-05);
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
 }
 
 .result-type {
-    font-size: 5rem;
-    font-weight: 700;
-    background: var(--gradient-accent);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-size: 4.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
     margin-bottom: var(--spacing-04);
-    letter-spacing: 0.15em;
-    animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0%, 100% {
-        filter: drop-shadow(0 0 20px rgba(138, 63, 252, 0.6));
-    }
-    50% {
-        filter: drop-shadow(0 0 40px rgba(238, 83, 150, 0.8));
-    }
+    letter-spacing: 0.1em;
 }
 
 .result-name {
     font-size: 2rem;
     font-weight: 400;
-    color: var(--text-on-dark);
+    color: var(--text-primary);
     margin-bottom: var(--spacing-03);
 }
 
@@ -620,13 +522,11 @@ body > * {
 }
 
 .result-section {
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px);
+    background: var(--bg-white);
     padding: var(--spacing-07);
-    border-radius: 12px;
-    border: 1px solid rgba(15, 98, 254, 0.4);
+    border-radius: 4px;
+    border: 1px solid var(--border-subtle);
     animation: fadeInUp 0.3s ease;
-    box-shadow: var(--shadow-md);
 }
 
 @keyframes fadeInUp {
@@ -643,7 +543,7 @@ body > * {
 .result-section h3 {
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--text-on-dark);
+    color: var(--text-primary);
     margin-bottom: var(--spacing-04);
     display: flex;
     align-items: center;
@@ -654,7 +554,7 @@ body > * {
 .result-text {
     color: var(--text-secondary);
     font-size: 1rem;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 /* 특징 컨테이너 */
@@ -665,23 +565,15 @@ body > * {
 }
 
 .trait-badge {
-    padding: var(--spacing-03) var(--spacing-05);
-    background: rgba(15, 98, 254, 0.1);
-    border: 1px solid var(--primary-color);
-    border-radius: 20px;
-    color: var(--text-on-dark);
+    padding: var(--spacing-02) var(--spacing-04);
+    background: var(--bg-light);
+    border: 1px solid var(--border-subtle);
+    border-radius: 2px;
+    color: var(--text-primary);
     font-weight: 600;
     font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    box-shadow: 0 0 10px rgba(15, 98, 254, 0.3);
-    transition: all var(--transition-fast);
-}
-
-.trait-badge:hover {
-    background: rgba(15, 98, 254, 0.2);
-    box-shadow: 0 0 15px rgba(15, 98, 254, 0.6);
-    transform: scale(1.05);
+    letter-spacing: 0.05em;
 }
 
 /* 결과 그리드 */
@@ -708,16 +600,15 @@ body > * {
     display: flex;
     justify-content: space-between;
     font-weight: 600;
-    color: var(--text-on-dark);
+    color: var(--text-primary);
 }
 
 .dimension-bar {
     height: 30px;
-    background: rgba(0, 0, 0, 0.3);
+    background: var(--bg-light);
     border-radius: 15px;
     overflow: hidden;
     position: relative;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .dimension-fill {
@@ -732,9 +623,10 @@ body > * {
     color: white;
     font-weight: 600;
 }
+
 /* IBM 추천 서비스 */
 .section-subtitle {
-    color: var(--text-light);
+    color: var(--text-secondary);
     font-size: 0.95rem;
     margin-bottom: 20px;
     font-style: italic;
@@ -793,7 +685,6 @@ body > * {
     line-height: 1.5;
     text-align: center;
 }
-
 
 /* 결과 액션 */
 .result-actions {
