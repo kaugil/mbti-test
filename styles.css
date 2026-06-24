@@ -185,12 +185,12 @@ body > * {
 }
 
 .info-card {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(10px);
     padding: var(--spacing-07) var(--spacing-05);
     border-radius: 8px;
     text-align: center;
-    border: 1px solid rgba(15, 98, 254, 0.3);
+    border: 1px solid rgba(15, 98, 254, 0.5);
     transition: all var(--transition-base);
     animation: scaleIn 0.3s ease;
     position: relative;
