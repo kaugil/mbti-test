@@ -290,9 +290,10 @@ function shareResult() {
     const resultName = document.getElementById('resultName').textContent;
     const shareText = `나의 MBTI 유형은 ${mbtiType} (${resultName})입니다! 🎉`;
     
-    // URL에 type 파라미터 추가
+    // URL에 type과 scores 파라미터 추가
     const baseUrl = window.location.origin + window.location.pathname;
-    const shareUrl = `${baseUrl}?type=${mbtiType}`;
+    const scoresParam = `${scores.EI},${scores.SN},${scores.TF},${scores.JP}`;
+    const shareUrl = `${baseUrl}?type=${mbtiType}&scores=${scoresParam}`;
     
     if (navigator.share) {
         navigator.share({
@@ -351,16 +352,32 @@ window.addEventListener('beforeinstallprompt', (e) => {
     console.log('PWA 설치 가능');
 });
 
-// URL에서 MBTI 유형 가져오기
+// URL에서 MBTI 유형과 점수 가져오기
 function getMBTIFromURL() {
     const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get('type');
+    const type = urlParams.get('type');
+    const scoresParam = urlParams.get('scores');
+    
+    return {
+        type: type,
+        scores: scoresParam
+    };
 }
 
 // MBTI 유형으로 직접 결과 보기
-function showResultByType(mbtiType) {
+function showResultByType(mbtiType, scoresParam = null) {
     const type = mbtiType.toUpperCase();
     if (mbtiDescriptions[type]) {
+        // scores 파라미터가 있으면 복원
+        if (scoresParam) {
+            const scoresArray = scoresParam.split(',').map(Number);
+            if (scoresArray.length === 4) {
+                scores.EI = scoresArray[0];
+                scores.SN = scoresArray[1];
+                scores.TF = scoresArray[2];
+                scores.JP = scoresArray[3];
+            }
+        }
         displayResult(type);
     } else {
         alert('유효하지 않은 MBTI 유형입니다.');
@@ -377,9 +394,9 @@ window.addEventListener('load', () => {
     }
     
     // URL에 type 파라미터가 있으면 해당 결과 표시
-    const mbtiType = getMBTIFromURL();
-    if (mbtiType) {
-        showResultByType(mbtiType);
+    const urlData = getMBTIFromURL();
+    if (urlData.type) {
+        showResultByType(urlData.type, urlData.scores);
     }
 });
 
