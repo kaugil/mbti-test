@@ -377,6 +377,12 @@ function showResultByType(mbtiType, scoresParam = null) {
                 scores.TF = scoresArray[2];
                 scores.JP = scoresArray[3];
             }
+        } else {
+            // scores가 없으면 MBTI 타입으로부터 기본 점수 생성
+            scores.EI = type[0] === 'E' ? 10 : -10;
+            scores.SN = type[1] === 'S' ? 10 : -10;
+            scores.TF = type[2] === 'T' ? 10 : -10;
+            scores.JP = type[3] === 'J' ? 10 : -10;
         }
         displayResult(type);
     } else {
